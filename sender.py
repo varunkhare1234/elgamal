@@ -1,7 +1,11 @@
 import random
 import sys
 def main(p,g,gx):
-    msg='hello'
+    f=open("/home/varun/elgamal/filea",'w+')
+    f2=open("/home/varun/elgamal/fileb",'w+')
+    if f2.readline == '\0':
+        sys.exit()
+    msg=f.readline()
     m=evaluate(msg)
     y=random.randint(10,20)             #check bounds
     gy=keygen(g,p)
