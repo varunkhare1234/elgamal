@@ -1,10 +1,9 @@
 #reciever code
 import sys
 import random
-def main(gy,mgxy):
+def main(mgxy,gy):
     f=open("/home/varun/elgamal/fileb",'w+')
-    f1=open("/home/varun/elgamal/filea","r")
-    f1.seek(0,2)
+    f1=open("/home/varun/elgamal/filea","w+")
     x=0
     gx=genkey(x)
     f1.write(str(x)+" "+str(gx))
