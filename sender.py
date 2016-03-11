@@ -1,5 +1,6 @@
 import random
 import sys
+import mod
 p='0'
 g='0'
 gx='0'
@@ -16,13 +17,13 @@ def main():
     if not f.read(1):                            #other part of code not run till now
         sys.exit()
     read(f)    
-    y=random.randint(1,5)             #check bounds
+    y=random.randint(10**200,10**600)             #check bounds
     gy=keygen(long(g),long(p),y)
     emsg=encrypt (gy,long(p),long(gx),m,y)
-    write(f2,emsg,gy,m)
+    write(f2,emsg,gy)
     
-def write(f2,emsg,gy,m):
-    f2.write(str(m)+" "+str(emsg)+" "+str(gy)+"#")    
+def write(f2,emsg,gy):
+    f2.write(str(emsg)+" "+str(gy)+"#")    
 def read(f):
     n=1
     global p,g,gx
@@ -41,9 +42,9 @@ def read(f):
             n+=1               
                   
 def keygen(g,p,y):
-    return (g**y)%p
+    return mod.mod(g,y,p)
 def encrypt(gy,p,gx,m,y):
-    return m*(gx**y)%p    
+    return (m*mod.mod(gx,y,p))%p    
 def evaluate(msg):    
     i=0
     m=0
